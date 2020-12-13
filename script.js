@@ -33,17 +33,23 @@ function operate(operator, num1, num2) {
     }
 }
 //const button1 = document.querySelector("#btn1");
+//I could've done this the whole time but lets keep up the consistency of my laziness
+let displayBox = document.getElementById("display").textContent;
 
 //Number variables
 let firstNumber = 0;
 let secondNumber = 0;
 let userInput = 0;
 
+//Symbol variable
+let operatorText = '';
+
 //Boolean variables
 let plusSelected = false;
 let subSelected = false;
 let multSelected = false;
 let divSelected = false;
+let firstNumberStored = false;
 
 //Have to make textContent equal a variable
 /*function displayInput() {
@@ -207,37 +213,123 @@ btn0.addEventListener("click", function() {
     }
 });
 
+//Button decimal point
+btnDot.addEventListener("click", function() {
+    if (document.getElementById("display").textContent.includes(".")) {
+        alert("Numbers can only contain one decimal point, chief.")
+    }
+    else {
+        if (userInput == 0) {
+            userInput = document.getElementById("display").textContent = ".";
+            console.log(userInput);     
+        }
+        else {
+            userInput = userInput.replace(/[^\d.]/g, '');
+            //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
+            console.log(userInput);  
+            userInput = document.getElementById("display").textContent = userInput + ".";
+           
+        }
+    }
+});
+
 //OperatorButtons
 //Addition Button
 btnPls.addEventListener("click", function(){
+    if (plusSelected == true) {
+        //this does nothing. make it grey out button in css or something
+    }
+    else {
+    firstNumberStored = true;
     plusSelected = true;
     firstNumber = document.getElementById("display").textContent;
     userInput = 0;
     console.log(firstNumber);
-    document.getElementById("display").textContent = "+";
+    operatorText = document.getElementById("display").textContent = "+";
+    }
 });
 
 //Subtraction Button
 btnSub.addEventListener("click", function(){
-    document.getElementById("display").textContent = firstNumber + " - ";
+    if (subSelected == true) {
+        //grey it out doooooood
+    }
+    else {
+    firstNumberStored = true;
+    subSelected = true;
+    firstNumber = document.getElementById("display").textContent;
+    userInput = 0;
+    console.log(firstNumber);
+    operatorText = document.getElementById("display").textContent = " - ";
+    }
 });
 
 //Multiplication Button
 btnMult.addEventListener("click", function(){
-    document.getElementById("display").textContent = firstNumber + " x ";
+    if (multSelected == true) {
+        //grey
+    }
+    else {
+    firstNumberStored = true;
+    multSelected = true;
+    firstNumber = document.getElementById("display").textContent;
+    userInput = 0;
+    console.log(firstNumber);
+    operatorText = document.getElementById("display").textContent ="x";
+    }
 });
 
 //Division Button
 btnDiv.addEventListener("click", function(){
-    document.getElementById("display").textContent = firstNumber + " / ";
+    if (divSelected == true) {
+        //yuh
+    }
+    else {
+    firstNumberStored = true;
+    divSelected = true;
+    firstNumber = document.getElementById("display").textContent;
+    userInput = 0;
+    console.log(firstNumber);
+    operatorText = document.getElementById("display").textContent = "/";
+    }
 });
 
 //Equals Button
 btnEq.addEventListener("click", function(){
+    if (!firstNumberStored || !userInput) {
+        //grey it out brudda
+        console.log("Nothing happened, ya goof");
+    }
+    else {
     if (plusSelected == true) {
-        firstNumber = parseInt(firstNumber);
-        userInput = parseInt(userInput);
+        firstNumber = parseFloat(firstNumber);
+        userInput = parseFloat(userInput);
         firstNumber = addNumbers(firstNumber,userInput);
+        firstNumber = Math.round((firstNumber + Number.EPSILON) * 100) / 100;
+        }
+        else if (subSelected == true) {
+            firstNumber = parseFloat(firstNumber);
+            userInput = parseFloat(userInput);
+            firstNumber = subtractNumbers(firstNumber,userInput);
+            firstNumber = Math.round((firstNumber + Number.EPSILON) * 100) / 100;
+        }
+        else if (multSelected == true) {
+            firstNumber = parseFloat(firstNumber);
+            userInput = parseFloat(userInput);
+            firstNumber = multiplyNumbers(firstNumber,userInput);
+            firstNumber = Math.round((firstNumber + Number.EPSILON) * 100) / 100;
+        }
+        else if (divSelected == true) {
+            firstNumber = parseFloat(firstNumber);
+            userInput = parseFloat(userInput);
+            if (userInput == 0) {
+                firstNumber = "We all make mistakes in the heat of passion, Jimbo.";
+            }
+            else {
+                firstNumber = divideNumbers(firstNumber,userInput);
+                firstNumber = Math.round((firstNumber + Number.EPSILON) * 100) / 100;
+            }
+            
         }
 
 
@@ -248,6 +340,73 @@ btnEq.addEventListener("click", function(){
     subSelected = false;
     multSelected = false;
     divSelected = false;
+    operatorText = '';
+    }
+});
+
+//Backspace Button
+btnBkSp.addEventListener("click", function(){
+    if (operatorText && firstNumberStored && userInput){
+        userInput = userInput.slice(0, -1);
+        document.getElementById("display").textContent = userInput;
+        if (!userInput){
+            operatorText = document.getElementById("display").textContent = operatorText;
+            
+        }
+        /*
+        else {
+        document.getElementById("display").textContent = userInput;
+        console.log("FUDGE");
+        }*/
+    
+        
+    
+    }
+    else if (!userInput && operatorText){
+        operatorText = '';
+        plusSelected = false;
+        subSelected = false;
+        multSelected = false;
+        divSelected = false;
+        console.log(operatorText);
+        userInput = firstNumber;
+        firstNumber = 0;
+        document.getElementById("display").textContent = userInput;
+
+    }
+    else if (firstNumber && !userInput && !operatorText){
+        //just to be cheeky see if we can backspace the answers
+        //problem here is it is working with firstNumber NOT userInput
+            //IDK WTF is going on here. i want to backspace the sums
+            //string was still converted to a number...
+        console.log("works");
+        //firstNumber = firstNumber.toString().slice(0, -1);
+        userInput = firstNumber.toString().slice(0, -1);
+        document.getElementById("display").textContent = userInput;
+        firstNumber = 0;
+            if (!userInput) {
+                userInput = 0;
+                console.log("it works");
+                document.getElementById("display").textContent = userInput;
+            }
+            else {
+                document.getElementById("display").textContent = userInput;
+                }
+    }
+    else {
+    //if showing a symbol, allow user to edit first number again
+    //uncheck div/add/mult/sub BOOL
+    //if display is empty, show a zero
+    userInput = userInput.slice(0, -1);
+    if (!userInput) {
+        userInput = 0;
+        console.log("it works");
+        document.getElementById("display").textContent = userInput;
+    }
+    else {
+        document.getElementById("display").textContent = userInput;
+        }
+    }
 });
 
 //Clear Button
@@ -259,9 +418,34 @@ btnClear.addEventListener("click", function(){
     subSelected = false;
     multSelected = false;
     divSelected = false;
+    firstNumberStored = false;
+    operatorText = '';
     document.getElementById("display").textContent = "0";
 });
 
 //LEFT OFF HERE
-//SET UP OTHER OPERATIONAL BUTTONS
-//ADDITION WORKS
+// RICH
+//backspace button
+    //if number AND operator are selected, it goes back to first
+    //number
+    //erasing second number doesn't go back to operator because
+    //current if statement wipes bools
+    //POSSIBLE SOLUTION: nested if's first one checks for
+    //userinput(second number)
+    //next one checks for operator(take out part that makes them false)
+    //last one checks for first num (probably be an else)
+    //SOLUTION: if !userInput AND there is an operator selected, backspace
+    //gets rid of the operator
+    //if !userInput AND no operators, first number becomes userInput
+    //KEEP IN MIND display a zero when a number is totally deleted
+    //NEW SOLUTION: if sub/plus all those are truthy AND !firstNumber
+        //store display as userInput
+    //if display = any of the symbols
+        //erase it and make userInput = firstNumber THEN wipe firstNumber
+    //NEWEST SOLUTION: make a variable specifically for displaying symbols
+        //if that is truthy, it erases it and does like what i said
+        //in line 405
+        //TODO create varialble, go through all button hits and
+        //display variable there
+
+//keyboard support
