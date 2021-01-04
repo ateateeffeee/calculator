@@ -62,8 +62,8 @@ let firstNumberStored = false;
     // run THAT function on click. Use output of that function to
     // figure out which number to display and so on
 
-//Button One
-btn1.addEventListener("click", function() {
+//Input functions
+function inputOne() {
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 1;
         console.log(userInput);     
@@ -75,11 +75,8 @@ btn1.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 1;
            
     }
-
-});
-
-//Button Two
-btn2.addEventListener("click", function() {
+}
+function inputTwo(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 2;
         console.log(userInput);     
@@ -91,10 +88,8 @@ btn2.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 2;
            
     }
-});
-
-//Button Three
-btn3.addEventListener("click", function() {
+}
+function inputThree(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 3;
         console.log(userInput);     
@@ -106,10 +101,8 @@ btn3.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 3;
            
     }
-});
-
-//Button Four
-btn4.addEventListener("click", function() {
+}
+function inputFour(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 4;
         console.log(userInput);     
@@ -121,10 +114,8 @@ btn4.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 4;
            
     }
-});
-
-//Button Five
-btn5.addEventListener("click", function() {
+}
+function inputFive(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 5;
         console.log(userInput);     
@@ -136,10 +127,8 @@ btn5.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 5;
            
     }
-});
-
-//Button Six
-btn6.addEventListener("click", function() {
+}
+function inputSix(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 6;
         console.log(userInput);     
@@ -151,10 +140,8 @@ btn6.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 6;
            
     }
-});
-
-//Button Seven
-btn7.addEventListener("click", function() {
+}
+function inputSeven(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 7;
         console.log(userInput);     
@@ -166,10 +153,8 @@ btn7.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 7;
            
     }
-});
-
-//Button Eight
-btn8.addEventListener("click", function() {
+}
+function inputEight(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 8;
         console.log(userInput);     
@@ -181,10 +166,8 @@ btn8.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 8;
            
     }
-});
-
-//Button Nine
-btn9.addEventListener("click", function() {
+}
+function inputNine(){
     if (userInput == 0) {
         userInput = document.getElementById("display").textContent = "" + 9;
         console.log(userInput);     
@@ -196,25 +179,15 @@ btn9.addEventListener("click", function() {
         userInput = document.getElementById("display").textContent = userInput + 9;
            
     }
-});
+}
+function inputZero(){
+    userInput = userInput.replace(/[^\d.]/g, '');
+    //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
+    console.log(userInput);  
+    userInput = document.getElementById("display").textContent = userInput + 0;
+}
 
-//Button Zero
-btn0.addEventListener("click", function() {
-    if (userInput == 0) {
-        userInput = document.getElementById("display").textContent = "" + 0;
-        console.log(userInput);     
-    }
-    else {
-        userInput = userInput.replace(/[^\d.]/g, '');
-        //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
-        console.log(userInput);  
-        userInput = document.getElementById("display").textContent = userInput + 0;
-           
-    }
-});
-
-//Button decimal point
-btnDot.addEventListener("click", function() {
+function inputDecimal(){
     if (document.getElementById("display").textContent.includes(".")) {
         alert("Numbers can only contain one decimal point, chief.")
     }
@@ -231,11 +204,10 @@ btnDot.addEventListener("click", function() {
            
         }
     }
-});
-
-//OperatorButtons
-//Addition Button
-btnPls.addEventListener("click", function(){
+}
+//just now changed userInput reset to '' instead of 0
+    //if stuff breaks, just change it back
+function inputPlus(){
     if (plusSelected == true) {
         //this does nothing. make it grey out button in css or something
     }
@@ -243,14 +215,13 @@ btnPls.addEventListener("click", function(){
     firstNumberStored = true;
     plusSelected = true;
     firstNumber = document.getElementById("display").textContent;
-    userInput = 0;
+    userInput = '';
     console.log(firstNumber);
     operatorText = document.getElementById("display").textContent = "+";
     }
-});
+}
 
-//Subtraction Button
-btnSub.addEventListener("click", function(){
+function inputMinus(){
     if (subSelected == true) {
         //grey it out doooooood
     }
@@ -258,14 +229,13 @@ btnSub.addEventListener("click", function(){
     firstNumberStored = true;
     subSelected = true;
     firstNumber = document.getElementById("display").textContent;
-    userInput = 0;
+    userInput = '';
     console.log(firstNumber);
     operatorText = document.getElementById("display").textContent = " - ";
     }
-});
+}
 
-//Multiplication Button
-btnMult.addEventListener("click", function(){
+function inputTimes(){
     if (multSelected == true) {
         //grey
     }
@@ -273,14 +243,12 @@ btnMult.addEventListener("click", function(){
     firstNumberStored = true;
     multSelected = true;
     firstNumber = document.getElementById("display").textContent;
-    userInput = 0;
+    userInput = '';
     console.log(firstNumber);
     operatorText = document.getElementById("display").textContent ="x";
     }
-});
-
-//Division Button
-btnDiv.addEventListener("click", function(){
+}
+function inputDivide(){
     if (divSelected == true) {
         //yuh
     }
@@ -288,14 +256,12 @@ btnDiv.addEventListener("click", function(){
     firstNumberStored = true;
     divSelected = true;
     firstNumber = document.getElementById("display").textContent;
-    userInput = 0;
+    userInput = '';
     console.log(firstNumber);
     operatorText = document.getElementById("display").textContent = "/";
     }
-});
-
-//Equals Button
-btnEq.addEventListener("click", function(){
+}
+function inputEquals(){
     if (!firstNumberStored || !userInput) {
         //grey it out brudda
         console.log("Nothing happened, ya goof");
@@ -324,6 +290,7 @@ btnEq.addEventListener("click", function(){
             userInput = parseFloat(userInput);
             if (userInput == 0) {
                 firstNumber = "We all make mistakes in the heat of passion, Jimbo.";
+                console.log('ppoooop');
             }
             else {
                 firstNumber = divideNumbers(firstNumber,userInput);
@@ -342,10 +309,8 @@ btnEq.addEventListener("click", function(){
     divSelected = false;
     operatorText = '';
     }
-});
-
-//Backspace Button
-btnBkSp.addEventListener("click", function(){
+}
+function inputBackspace(){
     if (operatorText && firstNumberStored && userInput){
         userInput = userInput.slice(0, -1);
         document.getElementById("display").textContent = userInput;
@@ -407,10 +372,8 @@ btnBkSp.addEventListener("click", function(){
         document.getElementById("display").textContent = userInput;
         }
     }
-});
-
-//Clear Button
-btnClear.addEventListener("click", function(){
+}
+function inputClear(){
     firstNumber = 0;
     secondNumber = 0;
     userInput = 0;
@@ -421,7 +384,123 @@ btnClear.addEventListener("click", function(){
     firstNumberStored = false;
     operatorText = '';
     document.getElementById("display").textContent = "0";
+}
+
+
+//KeyboardListener
+window.addEventListener("keydown", function(event) {
+    if(event.key === '1'){
+        inputOne();
+    }
+    else if(event.key === '2'){
+        inputTwo();
+    }
+    else if(event.key === '3'){
+        inputThree();
+    }
+    else if(event.key === '4'){
+        inputFour();
+    }
+    else if(event.key === '5'){
+        inputFive();
+    }
+    else if(event.key === '6'){
+        inputSix();
+    }
+    else if(event.key === '7'){
+        inputSeven();
+    }
+    else if(event.key === '8'){
+        inputEight();
+    }
+    else if(event.key === '9'){
+        inputNine();
+    }
+    else if(event.key === '0'){
+        inputZero();
+    }
+    else if(event.key === '.'){
+        inputDecimal();
+    }
+    else if(event.key === '+'){
+        inputPlus();
+    }
+    else if(event.key === '-'){
+        inputMinus();
+    }
+    else if(event.key === 'x'){
+        inputTimes();
+    }
+    else if(event.key === '/'){
+        inputDivide();
+    }
+    else if(event.key === '=' || event.key === 'Enter'){
+        inputEquals();
+    }
+    else if(event.key === 'Backspace'){
+        inputBackspace();
+    }
+    else if(event.key === 'Escape'){
+        inputClear();
+    }
 });
+
+//Click Listeners
+//Button One
+btn1.addEventListener("click",inputOne);
+
+//Button Two
+btn2.addEventListener("click", inputTwo);
+
+//Button Three
+btn3.addEventListener("click", inputThree);
+
+//Button Four
+btn4.addEventListener("click", inputFour);
+
+//Button Five
+btn5.addEventListener("click", inputFive);
+
+//Button Six
+btn6.addEventListener("click", inputSix);
+
+//Button Seven
+btn7.addEventListener("click", inputSeven);
+
+//Button Eight
+btn8.addEventListener("click", inputEight);
+
+//Button Nine
+btn9.addEventListener("click", inputNine);
+
+//Button Zero
+btn0.addEventListener("click", inputZero);
+
+//Button decimal point
+btnDot.addEventListener("click", inputDecimal);
+
+
+//OperatorButtons
+//Addition Button
+btnPls.addEventListener("click", inputPlus);
+
+//Subtraction Button
+btnSub.addEventListener("click", inputMinus);
+
+//Multiplication Button
+btnMult.addEventListener("click", inputTimes);
+
+//Division Button
+btnDiv.addEventListener("click", inputDivide);
+
+//Equals Button
+btnEq.addEventListener("click", inputEquals);
+
+//Backspace Button
+btnBkSp.addEventListener("click", inputBackspace);
+
+//Clear Button
+btnClear.addEventListener("click", inputClear);
 
 //LEFT OFF HERE
 // RICH
