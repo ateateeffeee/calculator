@@ -2,19 +2,52 @@
 cool stuff to do
 - darken decimal button if there is already a decimal point in
     display
-- make display font look like real calculator, duh
+- make display font look like real calculator, duh DONE
 - highlight buttons on hover
+- insert image for backspace
+- button click sound?
+- color background or weird image DONE
 
 */
-/*.buttons {
-    display: grid;
-    grid-template-columns: 100px 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px 100px 100px 100px;
-}*/
-#page-wrap {
-    width: 1000px;
+*{
+   margin: 0;
+   padding: 0;
+   background-color: rgb(223, 223, 223);
+}
+@font-face {
+    font-family: digitalSeven;
+    src: url('Fonts/digital-7.regular.ttf');
+}
+body, html {
+    height: 100%;
+    
+}
+p {
+    /*THIS THING IS BIG. MAKE IT NOT BIG*/
+    background-color: rgb(96, 145, 91);
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+    height: 40px;
+    font-family: digitalSeven;
+    font-size: 45px;
+    width: 400px;
     margin: 0 auto;
 }
+#page-wrap {
+    height: 1000px;
+    width: 1000px;
+    /*position: absolute;
+    top: 10%; 
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    margin-left: 2%;
+    margin-top: 2%;*/
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
 #btn0 {
     grid-area: btn0;
 }
@@ -69,6 +102,7 @@ cool stuff to do
 }
 #btnBkSp {
     grid-area: btnBkSp;
+    font-size: 20px;
 }
 #btnClear {
     grid-area: btnClear;
@@ -77,14 +111,17 @@ cool stuff to do
     background-color:red;
 }
 button {
-    border: 0px;
-    background-color: black;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    background-color: rgb(80, 80, 80);
     color: white;
     font-size: 20px;
 }
 .buttons {
     display: grid;
-    grid-template-columns: 10% 10% 10% 10%;
+    margin: 0 auto;
+    width: 400px;
     grid-auto-rows: 50px; /* for demo */
     grid-template-areas: 
         'btnClear btnClear btnBkSp btnDiv'
@@ -92,6 +129,12 @@ button {
         'btn4 btn5 btn6 btnSub'
         'btn1 btn2 btn3 btnPls'
         'btn0 btnDot btnEq btnEq';
-    /*grid-gap: 10px;*/
+    /*grid-gap: 1px;*/
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+    
+    
+    
 
 }

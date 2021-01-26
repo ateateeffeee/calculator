@@ -64,127 +64,160 @@ let firstNumberStored = false;
 
 //Input functions
 function inputOne() {
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 1;
         console.log(userInput);     
     }
-    else {
+    //Added this rule to keep numbers from poking out of display
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 1;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputTwo(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 2;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 2;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputThree(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 3;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 3;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputFour(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 4;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 4;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputFive(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 5;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 5;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputSix(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 6;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 6;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputSeven(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 7;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 7;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputEight(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 8;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 8;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputNine(){
-    if (userInput == 0) {
+    if (userInput == 0 && !(userInput.includes('.'))) {
         userInput = document.getElementById("display").textContent = "" + 9;
         console.log(userInput);     
     }
-    else {
+    else if (userInput.length < 18) {
         userInput = userInput.replace(/[^\d.]/g, '');
         //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
         console.log(userInput);  
         userInput = document.getElementById("display").textContent = userInput + 9;
            
     }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 function inputZero(){
+    if (userInput.length < 18) {
     userInput = userInput.replace(/[^\d.]/g, '');
     //document.getElementById("display").textContent.replace(/[^\d.]/g, '');
     console.log(userInput);  
     userInput = document.getElementById("display").textContent = userInput + 0;
+    }
+    else {
+        alert('Numbers cannot exceed 18 characters.');
+    }
 }
 
 function inputDecimal(){
@@ -207,11 +240,24 @@ function inputDecimal(){
 }
 //just now changed userInput reset to '' instead of 0
     //if stuff breaks, just change it back
+//NEW THING make it so you CANNOT hit other operators while one
+    //is selected. just make em do nothing, who cares
 function inputPlus(){
     if (plusSelected == true) {
         //this does nothing. make it grey out button in css or something
     }
+    else if (subSelected == true) {
+        //blank
+    }
+    else if (multSelected == true) {
+        //blank
+    }
+    else if (divSelected == true) {
+        //blank
+    }
     else {
+    //set other operators to true to prevent multiple operators
+        //breaking things?
     firstNumberStored = true;
     plusSelected = true;
     firstNumber = document.getElementById("display").textContent;
@@ -223,7 +269,16 @@ function inputPlus(){
 
 function inputMinus(){
     if (subSelected == true) {
-        //grey it out doooooood
+        //this does nothing
+    }
+    else if (plusSelected == true) {
+        //blank
+    }
+    else if (multSelected == true) {
+        //blank
+    }
+    else if (divSelected == true) {
+        //blank
     }
     else {
     firstNumberStored = true;
@@ -237,7 +292,16 @@ function inputMinus(){
 
 function inputTimes(){
     if (multSelected == true) {
-        //grey
+        //blank
+    }
+    else if (divSelected == true) {
+        //blank
+    }
+    else if (plusSelected == true) {
+        //blank
+    }
+    else if (subSelected == true) {
+        //blank
     }
     else {
     firstNumberStored = true;
@@ -250,7 +314,16 @@ function inputTimes(){
 }
 function inputDivide(){
     if (divSelected == true) {
-        //yuh
+        //blank
+    }
+    else if (multSelected == true) {
+        //blank
+    }
+    else if (plusSelected == true) {
+        //blank
+    }
+    else if (subSelected == true) {
+        //blank
     }
     else {
     firstNumberStored = true;
@@ -289,8 +362,7 @@ function inputEquals(){
             firstNumber = parseFloat(firstNumber);
             userInput = parseFloat(userInput);
             if (userInput == 0) {
-                firstNumber = "We all make mistakes in the heat of passion, Jimbo.";
-                console.log('ppoooop');
+                firstNumber = "You can't divide by 0.";
             }
             else {
                 firstNumber = divideNumbers(firstNumber,userInput);
@@ -526,5 +598,11 @@ btnClear.addEventListener("click", inputClear);
         //in line 405
         //TODO create varialble, go through all button hits and
         //display variable there
+
+//New issues:
+    //multiple ops can break things
+    //inputting ".0000000" then a number, makes number erase the
+        //previous inputs.
+        //SOLUTION: Make input check for decimal. FIXED.
 
 //keyboard support
