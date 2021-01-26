@@ -39,7 +39,7 @@ let displayBox = document.getElementById("display").textContent;
 //Number variables
 let firstNumber = 0;
 let secondNumber = 0;
-let userInput = 0;
+let userInput = '0';
 
 //Symbol variable
 let operatorText = '';
@@ -448,7 +448,7 @@ function inputBackspace(){
 function inputClear(){
     firstNumber = 0;
     secondNumber = 0;
-    userInput = 0;
+    userInput = '0';
     plusSelected = false;
     subSelected = false;
     multSelected = false;
